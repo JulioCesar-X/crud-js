@@ -1,14 +1,18 @@
 version: '3'
-
 services:
-  app:
-    container_name: setup-nodejs
+  backend:
+    container_name: crud-js-backend
     build:
-      context: .
+      context: ./backend
       dockerfile: Dockerfile
-    volumes:
-      - ./:/usr/src/app
     environment:
       - PORT=3000
     ports:
-      - 3000:3000
+      - "3000:3000"
+
+  frontend:
+    container_name: crud-js-frontend
+    build:
+      context: ./frontend
+    ports:
+      - "80:80"
