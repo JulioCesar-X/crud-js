@@ -149,3 +149,31 @@ html, body {
     color: var(--card-bg-color);
 
 }
+
+/*  para view da api*/
+
+/* Estilos para galeria de Pokémon */
+.pokemonCard {
+    display: inline-block;
+    width: 150px;
+    height: 200px;
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 10px;
+}
+
+.pokemonImage {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+}
+
+/* Estilos para paginação */
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    margin: 0 5px;
+}

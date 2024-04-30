@@ -49,13 +49,16 @@ export class UserManager {
       new User("atec", "123"),
       new User("atec2", "123"),
       new User("Julio2", "123"),
+      // adicione mais users se precisar ...
     ];
-    users.map((conta) => {
-      
-      if
-      
-    })
-    return username === validUsername && password === validPassword;
+
+    for (const user of users) {
+      if (username === user.getName() && password === user.getPassword()) {
+        return true;
+      }
+    }
+
+    return false;
   }
 
   // ... outras funções necessárias para sua classe UserManager ...
