@@ -1,13 +1,22 @@
+import { Task } from "./task.js";
 import { TaskList } from "./tasklist.js";
 import { TaskModal } from "./taskmodal.js";
 
 // Instanciando a lista de tarefas
 const taskList = new TaskList();
+
+// Função para carregar os dados da LocalStorage
 function loadTaskListFromLocalStorage() {
-  const savedTasks = JSON.parse(localStorage.getItem("taskList"));
+  const savedTasks = JSON.parse(localStorage.getItem("tasks"));
+  console.log(savedTasks); // Adicione esta linha para verificar os dados carregados
   if (savedTasks) {
     savedTasks.forEach((taskData) => {
-      const task = new Task(taskData.name, taskData.notes);
+      const task = new Task(
+        taskData.id,
+        taskData.name,
+        taskData.notes,
+        taskData.createDate
+      );
       taskList.addTask(task);
     });
   }
@@ -15,6 +24,7 @@ function loadTaskListFromLocalStorage() {
 
 // Chamar a função para carregar os dados da LocalStorage
 loadTaskListFromLocalStorage();
+
 // Função para abrir o modal de criação de tarefa
 function openCreateTaskModal() {
   const taskModal = new TaskModal();
@@ -62,6 +72,7 @@ function updateTaskTable() {
     taskTableBody.appendChild(taskRow);
   });
 }
+
 // Função para excluir uma tarefa
 function deleteTask(taskId) {
   taskList.removeTask(taskId);
